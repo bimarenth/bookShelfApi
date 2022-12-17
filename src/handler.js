@@ -27,8 +27,7 @@ const addBooksHandler = (request, h) => {
     const response = h.response({
       status: 'fail',
       message: 'Gagal menambahkan buku. Mohon isi nama buku'
-    })
-    response.code(400)
+    }).code(400)
     return response
   } else if (invalidRead) {
     const response = h.response({
@@ -41,8 +40,8 @@ const addBooksHandler = (request, h) => {
   const response = h.response({
     status: 'error',
     message: 'Buku gagal ditambahkan'
-  })
-  response.code(500)
+  }).code(500)
+  return response
 }
 
 const listAllBooksHandler = (request, h) => {
@@ -89,8 +88,7 @@ const getBookbyIdHandler = (request, h) => {
   const response = h.response({
     status: 'fail',
     message: 'Buku tidak ditemukan'
-  })
-  response.code(404)
+  }).code(404)
   return response
 }
 
@@ -134,16 +132,14 @@ const editBookHandler = (request, h) => {
     const response = h.response({
       status: 'success',
       message: 'Buku berhasil diperbarui'
-    })
-    response.code(200)
+    }).code(200)
     return response
   }
 
   const response = h.response({
     status: 'fail',
     message: 'Gagal memperbarui buku. Id tidak ditemukan'
-  })
-  response.code(404)
+  }).code(404)
   return response
 }
 
